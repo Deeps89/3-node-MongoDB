@@ -1,7 +1,7 @@
 #
 # MongoDB Dockerfile
 #
-# https://github.com/sampledockerfile/mongodb
+# https://github.com/Jhonny84/3-node-MangoDB/master/Sampledockerfile.txt
 #
 
 # Pull base image.
