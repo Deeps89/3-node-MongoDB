@@ -1,0 +1,7 @@
+# prepare docker image and container
+
+# Build the sampledockerfile
+
+docker build -it sampledockerfile/mongodb - 3.4
+docker run -d -p 27017:27017 -p 28017:28017 --name mongodb - 3.4 sampledockerfile/mongodb - 3.4
+docker logs <CONTAINER_ID>
