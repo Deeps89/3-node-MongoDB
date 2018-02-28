@@ -1,4 +1,4 @@
-# 3-node-MangoDB
+# 3-node-M0ngoDB
 # README
 
 # created terraform code for infrastructure.
