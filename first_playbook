@@ -1,0 +1,46 @@
+- hosts: db-mongodb
+  become: yes
+  roles:
+  - task.provision.mongodb
+ 
+# As this is 3 node cluster provision primary server first.
+# primary server
+[db-mongodb-master]
+<ip address> ansible_user=root
+
+# secondary servers
+[db-mongodb-node-1]
+<ip address> ansible_user=root
+
+[db-mongodb-node-2]
+<ip address> ansible_user=root
+
+# Installation and activation of MongoDB
+
+-  name:Install mongodb
+   apt:
+     name:mongodb-org
+	 state: present
+	 allow_unauthentictaed: yes
+	 
+- name: Create systemd service file
+  template:
+    src: mongod.service
+    dest: /etc/systemd/system/mongodb.service
+
+- name: Enable Mongodb service
+  command: systemctl enable mongodb.service
+  become: yes
+  when: env == 'prod'
+ 
+- name: Copy MongoDB configuration file
+  template:
+    src: mongodb.conf
+    dest: /etc/mongodb.conf
+	
+- name: Restart mongodb
+  command: systemctl restart mongodb.service
+
+
+
+ 
