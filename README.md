@@ -1,4 +1,4 @@
-# 3-node-M0ngoDB
+# 3-node-MongoDB
 # README
 
 # created terraform code for infrastructure.
